@@ -9,7 +9,6 @@ export default defineConfig(({ mode }) => ({
     port: 5173,
   },
   plugins: [react()],
-  base: "/portfolio/" ,
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

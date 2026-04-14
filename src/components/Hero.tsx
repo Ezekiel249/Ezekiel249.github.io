@@ -53,7 +53,7 @@ const Hero = () => {
             </Button>
             
             <a
-              href="/portfolio/Ope CV.pdf"
+              href="/Ope CV.pdf"
               download="Adelowo Opeoluwa Ezekiel - CV.pdf"
               className="w-full sm:w-auto"
             >
