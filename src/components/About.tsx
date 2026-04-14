@@ -35,7 +35,7 @@ const About = () => {
 
           <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
             {/* Image and Info */}
-            <div className="space-y-6 order-2 lg:order-1">
+            <div className="space-y-6 order-1 lg:order-2">
               <div className="relative">
                 <div className="w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 mx-auto lg:mx-0 relative">
                   <div className="absolute inset-0 bg-gradient-to-br from-portfolio-primary to-portfolio-accent rounded-2xl transform rotate-6"></div>
@@ -58,7 +58,7 @@ const About = () => {
             </div>
 
             {/* Contents */}
-          <div className="space-y-6 order-1 lg:order-2">
+          <div className="space-y-6 order-2 lg:order-1">
             <div className="prose prose-sm sm:prose-base lg:prose-lg dark:prose-invert max-w-none">
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                 I'm a versatile fullstack developer with hands-on experience building modern web applications 
