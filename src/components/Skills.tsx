@@ -1,107 +1,256 @@
 
-import { Card, CardContent } from '@/components/ui/card';
+import {
+  Code2,
+  Palette,
+  Server,
+  Database,
+  Wrench,
+  GitBranch,
+  Workflow,
+  Network,
+  ShieldCheck,
+  Terminal,
+  BrainCircuit,
+  Globe,
+  MonitorCog,
+  Layers3,
+  ArrowUpRight,
+  Sparkles,
+} from "lucide-react";
 
+import { Card, CardContent } from "@/components/ui/card";
 
-const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Frontend",
-      skills: [
-        { name: "React", level: 90, icon: "⚛️" },
-        { name: "TypeScript", level: 85, icon: "📘" },
-        { name: "JavaScript", level: 95, icon: "💛" },
-        { name: "HTML5", level: 98, icon: "🟠" },
-        { name: "CSS3", level: 90, icon: "🎨" },
-        { name: "PHP/Blade", level: 50, icon: "⚡" }
-      ]
-    },
-    {
-      title: "Styling",
-      skills: [
-        { name: "Tailwind CSS", level: 95, icon: "🎯" },
-        { name: "Sass/SCSS", level: 80, icon: "💗" },
-        { name: "Styled Components", level: 75, icon: "💅" },
-        { name: "CSS Modules", level: 85, icon: "📦" }
-      ]
-    },
-    {
-      title: "Tools & Others",
-      skills: [
-        { name: "Git", level: 88, icon: "🌿" },
-        { name: "Webpack", level: 70, icon: "📦" },
-        { name: "Vite", level: 85, icon: "⚡" },
-        { name: "Figma", level: 30, icon: "🎨" },
-        { name: "REST APIs", level: 80, icon: "🔗" },
-        { name: "Node.js", level: 80, icon: "🔗" }
-      ]
-    }
-  ];
+const skillCategories = [
+  {
+    title: "Frontend Development",
+    description: "Building responsive, accessible and interactive user interfaces.",
+    icon: Code2,
+    accent: "from-blue-500 to-cyan-500",
+    skills: [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Tailwind CSS",
+      "Vite",
+      "Responsive Design",
+    ],
+  },
+  {
+    title: "Backend Development",
+    description: "Developing application logic, APIs and secure server-side systems.",
+    icon: Server,
+    accent: "from-violet-500 to-purple-500",
+    skills: [
+      "Laravel",
+      "PHP",
+      "Node.js",
+      "REST APIs",
+      "Authentication",
+      "Role-Based Access Control",
+      "API Integration",
+    ],
+  },
+  {
+    title: "Database Management",
+    description: "Structuring, managing and working with application data.",
+    icon: Database,
+    accent: "from-emerald-500 to-teal-500",
+    skills: [
+      "PostgreSQL",
+      "MySQL",
+      "SQLite",
+      "SQL",
+      "Database Design",
+      "Query Management",
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    description: "Using modern tools to improve development and collaboration.",
+    icon: Wrench,
+    accent: "from-orange-500 to-amber-500",
+    skills: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Vite",
+      "Figma",
+      "Power Automate",
+      "OpenAI API",
+      "Whisper",
+    ],
+  },
+  {
+    title: "IT Operations & Infrastructure",
+    description: "Supporting enterprise systems, computer equipment and networks.",
+    icon: Network,
+    accent: "from-sky-500 to-indigo-500",
+    skills: [
+      "Computer Maintenance",
+      "Hardware Troubleshooting",
+      "Software Support",
+      "LAN Networking",
+      "Active Directory",
+      "LDAP",
+      "Linux",
+      "Apache",
+      "cPanel",
+    ],
+  },
+  {
+    title: "Automation & AI Integration",
+    description: "Connecting intelligent services and automating business processes.",
+    icon: BrainCircuit,
+    accent: "from-pink-500 to-rose-500",
+    skills: [
+      "AI API Integration",
+      "LLM Integration",
+      "Voice Automation",
+      "Workflow Automation",
+      "Document Generation",
+      "Report Automation",
+    ],
+  },
+];
 
-  const SkillBar = ({ skill }: { skill: { name: string; level: number; icon: string } }) => (
-    <div className="mb-3 sm:mb-4">
-      <div className="flex items-center justify-between mb-1 sm:mb-2">
-        <span className="flex items-center text-portfolio-secondary dark:text-white font-medium text-sm sm:text-base">
-          <span className="mr-2 text-base sm:text-lg">{skill.icon}</span>
-          {skill.name}
-        </span>
-        <span className="text-portfolio-primary font-semibold text-sm sm:text-base">{skill.level}%</span>
-      </div>
-      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 sm:h-2.5">
-        <div
-          className="bg-gradient-to-r from-portfolio-primary to-portfolio-accent h-2 sm:h-2.5 rounded-full transition-all duration-1000 ease-out"
-          style={{ width: `${skill.level}%` }}
-        ></div>
-      </div>
-    </div>
-  );
+const SkillCategory = ({
+  category,
+}: {
+  category: (typeof skillCategories)[number];
+}) => {
+  const Icon = category.icon;
 
   return (
-    <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-portfolio-secondary dark:text-white mb-4">
-              Skills & <span className="text-portfolio-primary">Expertise</span>
+    <Card className="group h-full overflow-hidden border border-gray-200/80 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-portfolio-primary/40 hover:shadow-xl dark:border-gray-700 dark:bg-gray-800/80">
+      <CardContent className="p-6 sm:p-7">
+        <div className="mb-5 flex items-start justify-between">
+          <div
+            className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${category.accent} text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}
+          >
+            <Icon size={23} />
+          </div>
+
+          <ArrowUpRight
+            size={19}
+            className="text-gray-400 transition-all duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-portfolio-primary"
+          />
+        </div>
+
+        <h3 className="mb-2 text-lg font-bold text-portfolio-secondary dark:text-white">
+          {category.title}
+        </h3>
+
+        <p className="mb-6 min-h-[48px] text-sm leading-relaxed text-gray-500 dark:text-gray-400">
+          {category.description}
+        </p>
+
+        <div className="flex flex-wrap gap-2">
+          {category.skills.map((skill) => (
+            <span
+              key={skill}
+              className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-2 text-xs font-medium text-gray-700 transition-colors duration-200 hover:border-portfolio-primary/40 hover:bg-portfolio-primary/5 hover:text-portfolio-primary dark:border-gray-600 dark:bg-gray-700/60 dark:text-gray-200 dark:hover:border-portfolio-primary/50 dark:hover:text-white"
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
+const Skills = () => {
+  return (
+    <section
+      id="skills"
+      className="relative overflow-hidden bg-gray-50 py-16 dark:bg-gray-900 sm:py-20 lg:py-24"
+    >
+      {/* Background decoration */}
+      <div className="pointer-events-none absolute -left-32 top-20 h-72 w-72 rounded-full bg-portfolio-primary/5 blur-3xl" />
+      <div className="pointer-events-none absolute -right-32 bottom-10 h-72 w-72 rounded-full bg-portfolio-accent/5 blur-3xl" />
+
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          {/* Section heading */}
+          <div className="mx-auto mb-14 max-w-3xl text-center sm:mb-16">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-portfolio-primary/20 bg-portfolio-primary/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-portfolio-primary">
+              <Sparkles size={14} />
+              Technical Expertise
+            </span>
+
+            <h2 className="mb-5 text-3xl font-bold tracking-tight text-portfolio-secondary dark:text-white sm:text-4xl lg:text-5xl">
+              Skills &{" "}
+              <span className="text-portfolio-primary">Technologies</span>
             </h2>
-            <div className="w-16 sm:w-24 h-1 bg-portfolio-primary mx-auto rounded-full mb-4 sm:mb-6"></div>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Technologies and tools I use to bring ideas to life and create amazing web experiences.
+
+            <div className="mx-auto mb-6 h-1 w-20 rounded-full bg-gradient-to-r from-portfolio-primary to-portfolio-accent" />
+
+            <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 sm:text-base lg:text-lg">
+              A combination of software development, database management,
+              automation and IT infrastructure skills that I use to build
+              practical solutions and support technology-driven operations.
             </p>
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {skillCategories.map((category, index) => (
-              <Card 
-                key={index} 
-                className="p-4 sm:p-6 hover:shadow-lg transition-shadow duration-300 bg-gray-50 dark:bg-gray-800 border-0"
-              >
-                <CardContent className="p-0">
-                  <h3 className="text-lg sm:text-xl font-bold text-portfolio-secondary dark:text-white mb-4 sm:mb-6 text-center">
-                    {category.title}
-                  </h3>
-                  <div className="space-y-3 sm:space-y-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <SkillBar key={skillIndex} skill={skill} />
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
+          {/* Skills categories */}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            {skillCategories.map((category) => (
+              <SkillCategory
+                key={category.title}
+                category={category}
+              />
             ))}
           </div>
 
-          {/* Additional Info */}
-          <div className="text-center mt-12 sm:mt-16">
-            <Card className="max-w-4xl mx-auto p-6 sm:p-8 bg-gradient-to-r from-portfolio-primary/5 to-portfolio-accent/5 border-0">
-              <CardContent className="p-0">
-                <h3 className="text-xl sm:text-2xl font-bold text-portfolio-secondary dark:text-white mb-3 sm:mb-4">
-                  Always Learning, Always Growing
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-                  I believe in continuous learning and staying updated with the latest trends in web development. 
-                  Currently exploring: Next.js, GraphQL, and Three.js for creating immersive web experiences.
-                </p>
+          {/* Learning and growth section */}
+          <div className="mt-14 sm:mt-16">
+            <Card className="relative mx-auto max-w-5xl overflow-hidden border-0 bg-gradient-to-br from-portfolio-secondary to-gray-900 text-white shadow-xl">
+              <div className="absolute -right-16 -top-20 h-64 w-64 rounded-full border border-white/10" />
+              <div className="absolute -right-5 -top-10 h-44 w-44 rounded-full border border-white/10" />
+
+              <CardContent className="relative flex flex-col gap-8 p-7 sm:p-9 md:flex-row md:items-center md:justify-between md:p-12">
+                <div className="max-w-2xl">
+                  <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-medium text-blue-100">
+                    <Sparkles size={14} />
+                    Continuous Learning
+                  </div>
+
+                  <h3 className="mb-4 text-2xl font-bold sm:text-3xl">
+                    Always Learning. Always Building.
+                  </h3>
+
+                  <p className="text-sm leading-relaxed text-gray-300 sm:text-base">
+                    Technology keeps evolving, and so does my approach to
+                    development. I continuously explore new tools, improve my
+                    technical skills and work on practical projects that help
+                    me build better, more reliable software solutions.
+                  </p>
+                </div>
+
+                <div className="grid shrink-0 grid-cols-2 gap-3 sm:gap-4">
+                  {[
+                    { name: "Next.js", icon: Globe },
+                    { name: "GraphQL", icon: Layers3 },
+                    { name: "Cloud Technologies", icon: Server },
+                    { name: "Advanced AI", icon: BrainCircuit },
+                  ].map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <div
+                        key={item.name}
+                        className="flex min-h-[76px] min-w-[125px] flex-col justify-center gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-colors hover:bg-white/10"
+                      >
+                        <Icon size={19} className="text-blue-300" />
+                        <span className="text-xs font-medium text-gray-200">
+                          {item.name}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
               </CardContent>
             </Card>
           </div>
